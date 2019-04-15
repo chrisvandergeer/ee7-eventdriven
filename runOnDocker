@@ -1,3 +1,4 @@
 mvn package
-docker build --tag=eventdriven-ioa .
+
+docker build --tag=eventdriven-ioa frontend
 docker run -p 8080:8080 -p 9990:9990  -it eventdriven-ioa
