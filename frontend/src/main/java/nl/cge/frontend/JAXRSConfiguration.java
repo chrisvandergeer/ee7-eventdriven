@@ -1,4 +1,4 @@
-package nl.cge.eventdrivenioa;
+package nl.cge.frontend;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

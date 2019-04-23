@@ -1,31 +1,31 @@
-package nl.cge.eventdrivenioa.events;
+package nl.cge.frontend.events;
 
 import java.util.UUID;
 
-public class MyEvent {
+public class ApplicationEventInpl implements ApplicicationEvent {
 
     private String eventId = UUID.randomUUID().toString();
+    private String procesnaam;
+    private String procesId;
+    private String inhoud;
 
-    private String eventMessage;
-
-    public MyEvent(String eventMessage) {
-        this.eventMessage = eventMessage;
-    }
-
+    @Override
     public String getEventId() {
         return eventId;
     }
 
-    public String getEventMessage() {
-        return eventMessage;
+    @Override
+    public String getProcesnaam() {
+        return procesnaam;
     }
 
     @Override
-    public String toString() {
-        return "MyEvent{" +
-                "eventId='" + eventId + '\'' +
-                ", eventMessage='" + eventMessage + '\'' +
-                '}';
+    public String getProcesId() {
+        return procesId;
     }
 
+    @Override
+    public String getInhoud() {
+        return inhoud;
+    }
 }

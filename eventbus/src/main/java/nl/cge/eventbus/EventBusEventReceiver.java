@@ -13,13 +13,13 @@ public class EventBusEventReceiver {
     private EntityManagerFactory emf;
 
 
-    public void onMyEvent(@Observes nl.cge.eventdrivenioa.events.MyEvent myEvent) {
-        System.out.println("EventBusEventReceiver: " + myEvent);
-        EntityManager entityManager = emf.createEntityManager();
-        entityManager.persist(new MyEvent(myEvent.getEventMessage()));
-        entityManager.createQuery("select e from MyEvent e", MyEvent.class).getResultList()
-                .forEach(e -> System.out.println(e));
-        ;
-
-    }
+//    public void onMyEvent(@Observes nl.cge.eventdrivenioa.events.MyEvent myEvent) {
+//        System.out.println("EventBusEventReceiver: " + myEvent);
+//        EntityManager entityManager = emf.createEntityManager();
+//        entityManager.persist(new MyEvent(myEvent.getEventMessage()));
+//        entityManager.createQuery("select e from MyEvent e", MyEvent.class).getResultList()
+//                .forEach(e -> System.out.println(e));
+//        ;
+//
+//    }
 }
