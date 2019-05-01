@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "a3682af5-914d-4d81-ae1a-b7e83914bead",
+		"name": "eventdrivenioa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registreerbetalingsverplichting",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"heffingkenmerk\": \"1234567890A\",\n    \"belastingmiddel\": \"MRB\",\n    \"uiterste-betaaldatum\": \"2019-05-01\",\n    \"componenten\": {\n    \t\"belasting\": 99\n    },\n    \"middelspecifiek\": {\n    \t\"kenteken\": \"HF-07-RF\",\n    \t\"volledig-tijdvak-begindatum\": \"2019-04-28\",\n    \t\"volledig-tijdvak-einddatum\": \"2019-07-28\",\n    \t\"verkort-tijdvak-begindatum\": \"2019-04-28\",\n    \t\"verkort-tijdvak-einddatum\": \"2019-03-01\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/eventdriven-ioa/resources/registreerbetalingsverplichting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eventdriven-ioa",
+						"resources",
+						"registreerbetalingsverplichting"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
