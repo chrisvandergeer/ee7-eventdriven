@@ -1,6 +1,7 @@
 package nl.cge.frontend.betalingsverplichting;
 
-import nl.cge.frontend.events.verwerkenvordering.BetalingsverplichtingOntvangen;
+import nl.cge.frontend.events.ApplicationEvent;
+import nl.cge.frontend.events.BetalingsverplichtigOntvangen;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -17,11 +18,12 @@ import javax.ws.rs.core.Response;
 public class RegistreerBetalingsverplichtingBoundary {
 
     @Inject
-    private Event<BetalingsverplichtingOntvangen> event;
+    @BetalingsverplichtigOntvangen
+    private Event<ApplicationEvent> betalingsverplichtingOntvangen;
 
     @POST
     public Response registreer(JsonObject betalingsverplichting) {
-        event.fire(new BetalingsverplichtingOntvangen(betalingsverplichting));
+        betalingsverplichtingOntvangen.fire(new ApplicationEvent("RegistrerenBetalingsverplichting", betalingsverplichting));
         return Response.ok().build();
     }
 

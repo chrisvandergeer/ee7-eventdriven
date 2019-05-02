@@ -1,6 +1,5 @@
 package nl.cge.eventbus;
 
-import nl.cge.frontend.events.AbstractApplicationEvent;
 import nl.cge.frontend.events.ApplicationEvent;
 
 import javax.ejb.Stateless;
@@ -20,12 +19,12 @@ public class EventBusEventReceiver {
     private IoaEventMapper mapper;
 
     public void onEvent(@Observes ApplicationEvent event) {
-        System.out.println("Eventbus: " + event.getContent().toString());
+        System.out.println("==> Eventbus: " + event.getContent().toString());
         IoaEvent ioaEvent = mapper.map(event);
         EntityManager entityManager = emf.createEntityManager();
         entityManager.persist(ioaEvent);
-        entityManager.createQuery("select e from IoaEvent e", IoaEvent.class).getResultList()
-                .forEach(e -> System.out.println(e));
+//        entityManager.createQuery("select e from IoaEvent e", IoaEvent.class).getResultList()
+//                .forEach(e -> System.out.println(e));
     }
 
 }
