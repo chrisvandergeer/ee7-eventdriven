@@ -23,6 +23,7 @@
         <module>common</module>
         <module>toewijzen</module>
         <module>evalueren</module>
+        <module>controlerenbetalingsverplichting</module>
     </modules>
 
     <properties>
