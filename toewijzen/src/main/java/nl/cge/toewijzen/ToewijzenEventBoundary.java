@@ -5,6 +5,8 @@ import nl.cge.frontend.events.ApplicationEvent;
 import nl.cge.frontend.events.BetalingsverplichtigOntvangen;
 import nl.cge.frontend.events.BetalingsverplichtingGoedgekeurd;
 import nl.cge.frontend.events.ToewijsbareVorderingGeregistreerd;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -18,12 +20,14 @@ import static javax.enterprise.event.TransactionPhase.AFTER_SUCCESS;
 @Stateless
 public class ToewijzenEventBoundary {
 
+    private final static Logger LOGGER = LogManager.getLogger(ToewijzenEventBoundary.class);
+
     @Inject
     @ToewijsbareVorderingGeregistreerd
     private Event<ApplicationEvent> toewijsbareVorderingGeregistreerd;
 
     public void onMyEvent(@Observes(during = AFTER_SUCCESS) @BetalingsverplichtingGoedgekeurd ApplicationEvent betalingsverplichtingGoedgekeurd) {
-        System.out.println("==> ToewijzenEventBoundary receives BetalingsverplichtingGoedgekeurd");
+        LOGGER.info(() -> "==> ToewijzenEventBoundary receives BetalingsverplichtingGoedgekeurd");
         JsonObject jsonObject = Json.createObjectBuilder().add("result", "toewijsbareVorderingGeregistreerd").build();
         ApplicationEvent resultEvent = new ApplicationEvent(betalingsverplichtingGoedgekeurd, jsonObject);
         toewijsbareVorderingGeregistreerd.fire(resultEvent);
