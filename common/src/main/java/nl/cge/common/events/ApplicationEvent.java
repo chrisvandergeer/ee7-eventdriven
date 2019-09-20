@@ -1,4 +1,4 @@
-package nl.cge.frontend.events;
+package nl.cge.common.events;
 
 import javax.json.JsonObject;
 import java.util.UUID;

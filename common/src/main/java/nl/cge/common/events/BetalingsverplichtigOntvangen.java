@@ -1,4 +1,4 @@
-package nl.cge.frontend.events;
+package nl.cge.common.events;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

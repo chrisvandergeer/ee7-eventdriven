@@ -1,6 +1,6 @@
 package nl.cge.eventbus;
 
-import nl.cge.frontend.events.ApplicationEvent;
+import nl.cge.common.events.ApplicationEvent;
 
 public class IoaEventMapper {
 

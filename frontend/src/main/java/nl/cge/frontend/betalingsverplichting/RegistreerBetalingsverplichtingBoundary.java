@@ -1,7 +1,7 @@
 package nl.cge.frontend.betalingsverplichting;
 
-import nl.cge.frontend.events.ApplicationEvent;
-import nl.cge.frontend.events.BetalingsverplichtigOntvangen;
+import nl.cge.common.events.ApplicationEvent;
+import nl.cge.common.events.BetalingsverplichtigOntvangen;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;

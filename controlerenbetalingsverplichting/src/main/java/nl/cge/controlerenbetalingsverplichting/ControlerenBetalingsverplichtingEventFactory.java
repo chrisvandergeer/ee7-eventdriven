@@ -1,6 +1,6 @@
 package nl.cge.controlerenbetalingsverplichting;
 
-import nl.cge.frontend.events.ApplicationEvent;
+import nl.cge.common.events.ApplicationEvent;
 
 import javax.json.Json;
 import javax.json.JsonObject;

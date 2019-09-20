@@ -1,9 +1,10 @@
 package nl.cge.controlerenbetalingsverplichting;
 
-import nl.cge.frontend.events.ApplicationEvent;
-import nl.cge.frontend.events.BetalingsverplichtigOntvangen;
-import nl.cge.frontend.events.BetalingsverplichtingAfgekeurd;
-import nl.cge.frontend.events.BetalingsverplichtingGoedgekeurd;
+import nl.cge.common.events.ApplicationEvent;
+import nl.cge.common.events.BetalingsverplichtigOntvangen;
+import nl.cge.common.events.BetalingsverplichtingAfgekeurd;
+import nl.cge.common.events.BetalingsverplichtingGoedgekeurd;
+import nl.cge.common.logging.EventLoggerInterceptor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,6 +12,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import javax.json.JsonObject;
 
 import static java.lang.String.format;
@@ -32,8 +34,8 @@ public class ControlerenBetalingsverplichtingBoundary {
     @Inject
     private ControlerenBetalingsverplichtingEventFactory eventFactory;
 
+    @Interceptors(EventLoggerInterceptor.class)
     public void onMyEvent(@Observes(during = AFTER_SUCCESS) @BetalingsverplichtigOntvangen ApplicationEvent event) {
-        LOGGER.info(() -> "==> ControlerenBetalingsverplichtingBoundary receives BetalingsverplichtigOntvangen");
         JsonObject betalingsverplichting = event.getContent();
         String belastingmiddel = betalingsverplichting.getString("belastingmiddel");
         ApplicationEvent resultEvent;

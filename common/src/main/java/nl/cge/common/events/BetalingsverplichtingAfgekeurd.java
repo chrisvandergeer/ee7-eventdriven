@@ -1,4 +1,4 @@
-package nl.cge.frontend.events;
+package nl.cge.common.events;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;
@@ -10,5 +10,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Qualifier
 @Retention(RUNTIME)
 @Target({METHOD, FIELD, PARAMETER, TYPE})
-public @interface BetalingsverplichtingGoedgekeurd {
+public @interface BetalingsverplichtingAfgekeurd {
 }
